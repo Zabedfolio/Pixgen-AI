@@ -50,12 +50,12 @@ const Navbar = () => {
             <ul className="flex items-center text-sm gap-4">
               <li>
                 <Link href={"/signup"}>
-                  <button className="btn btn-soft btn-primary">SignUp</button>
+                  <button className="btn btn-soft btn-primary rounded-full">SignUp</button>
                 </Link>
               </li>
               <li>
                 <Link href={"/signin"}>
-                  <button className="btn btn-soft btn-secondary">SignIn</button>
+                  <button className="btn btn-soft btn-secondary rounded-full">SignIn</button>
                 </Link>
               </li>
             </ul>
@@ -119,10 +119,10 @@ const Navbar = () => {
           </ul>
           <div className="flex gap-3 px-4 pb-4">
             <Link href={"/signup"} onClick={() => setMenuOpen(false)}>
-              <button className="btn btn-soft btn-primary btn-sm">SignUp</button>
+              <button className="btn btn-soft btn-primary btn-sm rounded-full">SignUp</button>
             </Link>
             <Link href={"/signin"} onClick={() => setMenuOpen(false)}>
-              <button className="btn btn-soft btn-secondary btn-sm">SignIn</button>
+              <button className="btn btn-soft btn-secondary btn-sm rounded-full">SignIn</button>
             </Link>
           </div>
         </div>
