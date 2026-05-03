@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const Navbar = () => {
   return (
-    <div className="border-b px-2">
+    <div className="border-b border-[#e1e1e1] px-2">
       <nav className=" flex justify-between items-center  py-3 container mx-auto w-full">
         <div className="flex gap-2 items-center">
           <Image
@@ -39,7 +39,7 @@ const Navbar = () => {
             </li>
             <li>
               <Link href={"/signin"}>
-                    <button className="btn btn-soft btn-primary">SignIn</button>
+                    <button className="btn btn-soft btn-secondary">SignIn</button>
               </Link>
             </li>
           </ul>
