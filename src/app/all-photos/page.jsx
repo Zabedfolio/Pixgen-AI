@@ -3,7 +3,8 @@ import PhotoCard from '@/components/PhotoCard';
 import React from 'react';
 
 const AllPhotosPage = async({searchParams}) => {
-    const {category} = await searchParams;
+    const params = await searchParams;
+    const { category } = params;
     const res = await fetch('https://pixgen-ai-zabedfolio.vercel.app/data/data.json');
     const photos = await res.json();
     // const topPhotos = photos.slice(0,8);
@@ -15,7 +16,7 @@ const AllPhotosPage = async({searchParams}) => {
         filteredPhotos= photos;
     }
 
-    
+
     return (
         <div className='container mx-auto'>
             <h1 className='font-bold text-2xl my-5'>All Photos</h1>
