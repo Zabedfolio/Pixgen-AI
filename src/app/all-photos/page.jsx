@@ -5,7 +5,7 @@ import React from 'react';
 const AllPhotosPage = async({searchParams}) => {
     const params = await searchParams;
     const { category } = params;
-    const res = await fetch('https://pixgen-ai-zabedfolio.vercel.app/data/data.json');
+    const res = await fetch('https://pixgen-ai-zabedfolio.vercel.app/data.json');
     const photos = await res.json();
     // const topPhotos = photos.slice(0,8);
     // console.log(photos, "photos")
