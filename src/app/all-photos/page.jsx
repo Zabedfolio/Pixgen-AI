@@ -25,11 +25,6 @@ const TopGenerations = async({searchParams}) => {
                     filteredPhotos.map(photo => <PhotoCard key={photo.id} photo={photo}></PhotoCard>)
                 }
             </div>
-            <div className='flex justify-center'>
-                <Link href={'/all-photos'}>
-                    <button className='btn btn-secondary text-white mt-8 rounded-full'>View All Photos <HiArrowUpRight /></button>
-                </Link>
-            </div>
         </div>
     );
 };

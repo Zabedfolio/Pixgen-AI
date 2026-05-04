@@ -10,7 +10,7 @@ const PhotoCard = ({ photo }) => {
         <Card className="group relative overflow-hidden rounded-2xl border border-zinc-200/60 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
             
             {/* Image Section */}
-            <div className="relative aspect-square w-full overflow-hidden">
+            <div className="relative aspect-square w-full overflow-hidden rounded-xl">
                 <Image
                     src={photo.imageUrl}
                     alt={photo.title}
@@ -32,7 +32,7 @@ const PhotoCard = ({ photo }) => {
             </div>
 
             {/* Content */}
-            <div className="p-4 space-y-3">
+            <div className="space-y-3">
                 
                 {/* Title */}
                 <h2 className="text-base font-semibold text-zinc-800 line-clamp-1">

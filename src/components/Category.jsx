@@ -1,22 +1,25 @@
+"use client";
+
 import { Button } from "@heroui/react";
 import Link from "next/link";
-import React from "react";
+import { useSearchParams } from "next/navigation";
+import React, { useEffect, useState } from "react";
 
-const Category = async ({ searchParams }) => {
-    const res = await fetch("https://pixgen-eta.vercel.app/category.json", {
-        cache: "no-store",
-    });
+const Category = () => {
+    const searchParams = useSearchParams();
+    const activeCategory = searchParams.get("category")?.toLowerCase();
+    const [categories, setCategories] = useState([]);
 
-    const categories = await res.json();
-
-    const activeCategory = searchParams?.category?.toLowerCase();
+    useEffect(() => {
+        fetch("https://pixgen-eta.vercel.app/category.json")
+            .then((res) => res.json())
+            .then((data) => setCategories(data));
+    }, []);
 
     return (
         <div className="mb-6">
-            {/* Scrollable pill container */}
             <div className="flex gap-2 overflow-x-auto no-scrollbar py-2">
-                
-                {/* All button */}
+
                 <Link href="/all-photos">
                     <Button
                         size="sm"
@@ -30,11 +33,8 @@ const Category = async ({ searchParams }) => {
                     </Button>
                 </Link>
 
-                {/* Categories */}
                 {categories.map((category) => {
-                    const isActive =
-                        activeCategory === category.name.toLowerCase();
-
+                    const isActive = activeCategory === category.name.toLowerCase();
                     return (
                         <Link
                             key={category.id}
