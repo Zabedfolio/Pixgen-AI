@@ -2,8 +2,15 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { authClient } from "@/lib/auth-client";
 
 const Navbar = () => {
+
+  const { data: session, isPending } = authClient.useSession()
+  const user = session?.user;
+  console.log(user, "user")
+
+
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
@@ -30,13 +37,29 @@ const Navbar = () => {
 
         {/* Desktop Auth */}
         <div className="hidden md:flex gap-4">
-          <Link href="/signup">
-            <button className="btn btn-soft btn-primary rounded-full">SignUp</button>
-          </Link>
-          <Link href="/signin">
-            <button className="btn btn-soft btn-secondary rounded-full">SignIn</button>
-          </Link>
+          {user ? (
+          <div className='flex gap-2 items-center'>
+            <h2>Hello, <span className='text-pink-500 font-bold'>{user.name}</span></h2>
+            <Image alt='user' src={user.image || ""} width={40} height={40} className='rounded-full' href='/profile'></Image>
+            <button className='btn btn-soft btn-secondary rounded-full' onClick={async () => await authClient.signOut()}>Logout</button>
+          </div>
+        )
+          :
+          (
+            <>
+              <div>
+                <Link href="/signup">
+                  <button className="btn btn-soft btn-primary rounded-full">SignUp</button>
+                </Link>
+                <Link href="/signin">
+                  <button className="btn btn-soft btn-secondary rounded-full">SignIn</button>
+                </Link>
+              </div>
+            </>
+
+          )}
         </div>
+        
 
         {/* Mobile Hamburger */}
         <button
@@ -58,13 +81,35 @@ const Navbar = () => {
           <li><Link href="/profile" onClick={() => setMenuOpen(false)}>Profile</Link></li>
         </ul>
 
-        <div className="flex gap-3 px-4 pb-4">
-          <Link href="/signup">
-            <button className="btn btn-soft btn-primary btn-sm rounded-full">SignUp</button>
-          </Link>
-          <Link href="/signin">
-            <button className="btn btn-soft btn-secondary btn-sm rounded-full">SignIn</button>
-          </Link>
+        <div className="gap-3 px-4 pb-4">
+          {user ? (
+          <div className='gap-2 items-center'>
+            <div className="flex items-center gap-4 mt-2 mb-4">
+            <h2>Hello, <span className='text-pink-500 font-bold'>{user.name}</span></h2>
+            </div>
+            
+            <div className="flex gap-4">
+              <Image alt='user' src={user.image || ""} width={40} height={40} className='rounded-full' href='/profile'></Image>
+              <button className='btn btn-soft btn-secondary rounded-full' onClick={async () => await authClient.signOut()}>Logout</button>
+            </div>
+            
+            
+          </div>
+        )
+          :
+          (
+            <>
+              <div>
+                <Link href="/signup">
+                  <button className="btn btn-soft btn-primary rounded-full">SignUp</button>
+                </Link>
+                <Link href="/signin">
+                  <button className="btn btn-soft btn-secondary rounded-full">SignIn</button>
+                </Link>
+              </div>
+            </>
+
+          )}
         </div>
       </div>
     </div>
