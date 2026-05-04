@@ -1,4 +1,6 @@
 import Image from "next/image";
+import { BiDownload } from "react-icons/bi";
+import { FaHeart } from "react-icons/fa6";
 
 const PhotoDetailsPage = async ({ params }) => {
     const { id } = await params;
@@ -15,10 +17,10 @@ const PhotoDetailsPage = async ({ params }) => {
     }
 
     return (
-        <div className="min-h-screen bg-white text-gray-900 font-sans">
+        <div className="min-h-screen bg-white text-gray-900 font-sans container mx-auto">
 
             {/* Hero Image */}
-            <div className="relative w-full aspect-video overflow-hidden bg-gray-100 group">
+            <div className="relative w-full aspect-video overflow-hidden bg-gray-100 group rounded-lg mt-5">
                 <Image
                     src={photo.imageUrl}
                     alt={photo.title}
@@ -42,11 +44,11 @@ const PhotoDetailsPage = async ({ params }) => {
                 {/* Bottom-right stats */}
                 <div className="absolute bottom-5 right-5 flex gap-2.5">
                     <div className="bg-white/80 border border-black/10 backdrop-blur-md px-3.5 py-1.5 rounded-full flex items-center gap-2 text-xs font-medium text-gray-700">
-                        <span className="w-1.5 h-1.5 rounded-full bg-rose-400 inline-block" />
+                        <FaHeart className="text-rose-500" />
                         {photo.likes}
                     </div>
                     <div className="bg-white/80 border border-black/10 backdrop-blur-md px-3.5 py-1.5 rounded-full flex items-center gap-2 text-xs font-medium text-gray-700">
-                        <span className="w-1.5 h-1.5 rounded-full bg-gray-400 inline-block" />
+                        <BiDownload className="text-blue-500 text-lg" />
                         {photo.downloads}
                     </div>
                 </div>
@@ -57,10 +59,10 @@ const PhotoDetailsPage = async ({ params }) => {
 
                 {/* Title row */}
                 <div className="flex items-start justify-between gap-4 mb-1">
-                    <h1 className="text-[22px] font-medium leading-snug tracking-tight text-gray-900">
+                    <h1 className="text-4xl font-medium leading-snug tracking-tight text-gray-900">
                         {photo.title}
                     </h1>
-                    <span className="shrink-0 mt-1 bg-purple-50 border border-purple-200 text-purple-600 font-mono text-[10px] tracking-widest uppercase px-2.5 py-1 rounded-md">
+                    <span className="shrink-0 mt-1 bg-pink-50 border border-pink-200 text-pink-600 font-mono text-[10px] tracking-widest uppercase px-2.5 py-1 rounded-md">
                         {photo.model}
                     </span>
                 </div>
@@ -70,11 +72,11 @@ const PhotoDetailsPage = async ({ params }) => {
                 </p>
 
                 {/* Prompt block */}
-                <div className="bg-gray-50 border-l-2 border-purple-400 border-y border-r border-gray-200 rounded-r-lg px-4 py-3 mb-6">
-                    <p className="text-[9px] font-mono tracking-[0.15em] uppercase text-purple-500 mb-1.5">
+                <div className="bg-gray-50 border-l-2 border-pink-400 border-y border-r border-gray-200 rounded-r-lg px-4 py-3 mb-6">
+                    <p className="text-md font-mono tracking-[0.15em] uppercase text-pink-500 mb-1.5">
                         Prompt
                     </p>
-                    <p className="text-[13px] leading-relaxed text-gray-500 italic">
+                    <p className="text-md leading-relaxed text-gray-500 italic">
                         {photo.prompt}
                     </p>
                 </div>
@@ -109,7 +111,7 @@ const PhotoDetailsPage = async ({ params }) => {
                         {photo.tags?.map(tag => (
                             <span
                                 key={tag}
-                                className="border border-gray-200 hover:border-purple-300 hover:text-purple-600 hover:bg-purple-50 text-gray-500 font-mono text-[11px] tracking-wide px-3 py-1 rounded-full cursor-pointer transition-all duration-200"
+                                className="border border-gray-200 hover:border-pink-300 hover:text-pink-600 hover:bg-pink-50 text-gray-500 font-mono text-[11px] tracking-wide px-3 py-1 rounded-full cursor-pointer transition-all duration-200"
                             >
                                 #{tag}
                             </span>

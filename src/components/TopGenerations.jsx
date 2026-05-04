@@ -5,7 +5,7 @@ import { HiArrowUpRight } from 'react-icons/hi2';
 
 const TopGenerations = async() => {
 
-    const res = await fetch('https://pixgen-ai-zabedfolio.vercel.app/data/data.json');
+    const res = await fetch('https://pixgen-ai-zabedfolio.vercel.app/data.json');
     const photos = await res.json();
     const topPhotos = photos.slice(0,8);
     // console.log(photos, "photos")
