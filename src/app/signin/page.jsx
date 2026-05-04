@@ -30,9 +30,17 @@ const SignInPage = () => {
             password,
             callbackURL: '/',
         })
+
+        console.log(data,error,"logged in")
     }
+
+    const handleSocialSignUp = async (provider) => {
+    await authClient.signIn.social({ provider })
+}
+
+
     return (
-        <Card className="mx-auto w-125 py-10 mt-10">
+        <Card className="mx-auto w-full sm:w-96 md:w-125 lg:w-125 py-8 sm:py-10 mt-10 sm:mt-15 px-4">
             <h1 className="text-center text-2xl font-bold">Sign Up</h1>
 
             <Form className="flex w-96 mx-auto flex-col gap-4" onSubmit={onSubmit}>
@@ -100,10 +108,14 @@ const SignInPage = () => {
                     <div className="flex-1 h-px bg-gray-300"></div>
                 </div>
 
-                {/* <Button className="w-full" variant="tertiary" onClick={handleGoogleSignUp}>
+                <Button className="w-full" variant="tertiary" onClick={()=>handleSocialSignUp('google')}>
                     <Icon icon="devicon:google" />
                     Sign up with Google
-                </Button> */}
+                </Button>
+                <Button className="w-full" variant="tertiary" onClick={()=>handleSocialSignUp('github')}>
+                    <Icon icon="devicon:github" />
+                    Sign up with Github
+                </Button>
             </Form>
 
 
