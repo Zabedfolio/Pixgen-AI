@@ -32,7 +32,7 @@ const PhotoDetailsPage = async ({ params }) => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
 
                 {/* Top-left badge */}
-                <div className="absolute top-5 left-5 bg-white/80 border border-black/10 backdrop-blur-md text-purple-600 font-mono text-[10px] tracking-widest uppercase px-3 py-1.5 rounded-full">
+                <div className="absolute top-5 left-5 bg-white/80 border border-black/10 backdrop-blur-md text-pink-600 font-mono text-[10px] tracking-widest uppercase px-3 py-1.5 rounded-full">
                     AI Generated
                 </div>
 

@@ -14,17 +14,17 @@ const Banner = () => {
             Generate high-quality images from simple text prompts.
           </p>
 
-          <div className="flex gap-4">
+          <div className="flex gap-4 items-center">
             <Link href="#">
-              <Button className="bg-linear-to-r from-pink-500 via-purple-500 bg-red-500">
+              <button className="btn bg-linear-to-r from-pink-500 via-purple-500 bg-red-500 rounded-full border-none text-white shadow-none">
                 Generate Now
-              </Button>
+              </button>
             </Link>
 
             <Link href="/pricing">
-              <Button variant="outline" className="text-white">
+              <button className="text-white btn btn-outline rounded-full shadow-none hover:text-black">
                 View Pricing
-              </Button>
+              </button>
             </Link>
           </div>
         </div>

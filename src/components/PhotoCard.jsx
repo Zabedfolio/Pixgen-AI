@@ -25,7 +25,7 @@ const PhotoCard = ({ photo }) => {
                 {/* Category chip */}
                 <Chip
                     size="sm"
-                    className="absolute right-3 top-3 bg-white/80 backdrop-blur-md text-xs font-medium"
+                    className="absolute right-3 top-3 bg-white/80 backdrop-blur-md text-xs font-medium rounded-full px-2 py-0.5 "
                 >
                     {photo.category}
                 </Chip>
