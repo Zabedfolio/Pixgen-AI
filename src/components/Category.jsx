@@ -17,7 +17,7 @@ const Category = async ({ searchParams }) => {
             <div className="flex gap-2 overflow-x-auto no-scrollbar py-2">
                 
                 {/* All button */}
-                <Link href="/">
+                <Link href="/all-photos">
                     <Button
                         size="sm"
                         className={`rounded-full px-4 transition-all ${
