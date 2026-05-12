@@ -35,13 +35,16 @@ const SignInPage = () => {
     }
 
     const handleSocialSignUp = async (provider) => {
-    await authClient.signIn.social({ provider })
+    await authClient.signIn.social({ 
+        provider,
+        callbackURL: '/'
+    })
 }
 
 
     return (
         <Card className="mx-auto w-full sm:w-96 md:w-125 lg:w-125 py-8 sm:py-10 mt-10 sm:mt-15 px-4">
-            <h1 className="text-center text-2xl font-bold">Sign Up</h1>
+            <h1 className="text-center text-2xl font-bold">Sign In</h1>
 
             <Form className="flex w-96 mx-auto flex-col gap-4" onSubmit={onSubmit}>
 
